@@ -1,15 +1,17 @@
 <html>
 <head>
     <script src="script.js" defer></script>
-</head>
+    <link rel="stylesheet" type="text/css" href="style.css" ></head>
 
 <body>
     <h1>Hi-Low</h1>
     <p>We have chosen a number between 1 and 100 (inclusive). Guess the number.</p>
     <div>
-        <input id="guess">
-        <button id="submit">Submit</button>
+        <input id="guessInput">
+        <button id="guessButton">Guess</button>
     </div>
     <p id="reply"></p>
+    <p id="guessesLeft">You have 10 guesses left.</p>
+    <button id="playAgainButton" class="invisible">Play Again</button>
 </body>
 </html>
