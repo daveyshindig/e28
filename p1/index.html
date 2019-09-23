@@ -2,10 +2,23 @@
 <head>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
   <script src="script.js" defer></script>
+  <link rel="stylesheet" type="text/css" href="style.css" ></head>
 </head>
 
 <body>
-  <div id='app'></div>
+  <div id='app' v-cloak>
+    <h1>Hi-Low</h1>
+    <p>We have chosen a number between 1 and 100 (inclusive). Guess the number.</p>
+    <div>
+        <input id="guessInput" v-model="guess">
+        <button id="guessButton" v-on:click="makeGuess(secretNumber, guessNumber, guess, message)" v-if="guess != secretNumber">Guess</button>
+    </div>
+    <p id="reply">{{ message }}</p>
+    <p>Secret num: {{ secretNumber }}</p>
+    <p id="guessesLeft" >You have {{ guessNumber }} guesses left.</p>
+    <button id="playAgainButton" v-if="guessNumber >= 10">Play Again</button>
+
+  </div>
 </body>
 
 </html>
