@@ -11,12 +11,11 @@
     <p>We have chosen a number between 1 and 100 (inclusive). Guess the number.</p>
     <div>
         <input id="guessInput" v-model="guess">
-        <button id="guessButton" v-on:click="makeGuess(secretNumber, guessNumber, guess, message)" v-if="guess != secretNumber">Guess</button>
+        <button id="guessButton" v-on:click="takeGuess()" v-if="guessNumber < 10 && !won">Guess</button>
     </div>
     <p id="reply">{{ message }}</p>
-    <p>Secret num: {{ secretNumber }}</p>
-    <p id="guessesLeft" >You have {{ guessNumber }} guesses left.</p>
-    <button id="playAgainButton" v-if="guessNumber >= 10">Play Again</button>
+    <p id="guessesLeft" v-if="!won">You have {{ 10 - guessNumber }} guesses left.</p>
+    <button id="playAgainButton" v-on:click="playAgain()" v-if="guessNumber >= 10 || won">Play Again</button>
 
   </div>
 </body>
