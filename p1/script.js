@@ -9,7 +9,6 @@ let app = new Vue({
   },
   methods: {
     takeGuess() {
-      console.log(this.secretNumber);
       this.guessNumber = this.guessNumber + 1;
       var guessInt = parseFloat(this.guess, 10);
 

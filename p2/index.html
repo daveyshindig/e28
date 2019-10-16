@@ -1,0 +1,23 @@
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" type="text/css" href="style.css" ></head>
+</head>
+
+<body>
+  <div id='app' v-cloak>
+    <h1>Mystery Word Game</h1>
+    <p>Guess the word, one letter at a time, without choosing more than 5 wrong letters.</p>
+    <div>{{ wordDisplay }}</div>
+    <div>
+      <input id="guessInput" v-model="guess" placeholder="Guess a letter">
+      <button id="guessButton" :click="takeGuess()">Guess</button>
+    </div>
+    <p id="reply">{{ message }}</p>
+    <p id="guessesLeft" v-if="!won">You have {{ 5 - guessNumber }} guesses left.</p>
+  </div>
+</body>
+
+</html>
+
