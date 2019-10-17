@@ -1,4 +1,3 @@
-function containsLetter(arr) { return function(c) { arr.indexOf(c) > -1 }};
 var dictionary = ["pontoon", "incredible", "flight", "buddhism", "desire"];
 
 let app = new Vue({
@@ -6,7 +5,6 @@ let app = new Vue({
   data: {
     chars: dictionary[Math.ceil(Math.random() * dictionary.length)].split(""),
     guess: "",
-    guessNumber: 0,
     guesses: [],
     message: "",
     won: false
@@ -16,15 +14,17 @@ let app = new Vue({
       return this.guesses.length;
     },
     rightGuesses() {
-      return this.guesses.filter(containsLetter(this.chars));
+      return this.guesses.filter(guess => this.chars.indexOf(guess[0]) > -1);
     },
     wrongGuesses() {
-      return this.guesses.filter(!containsLetter(this.chars));
+      return this.guesses.filter(guess => this.chars.indexOf(guess[0]) === -1);
     },
     wordDisplay() {
+      // why?
+      let that = this;
       var arr = [];
-      this.chars.forEach(function(c) { 
-        if (arr.indexOf(c) > -1) {
+      that.chars.forEach(function(c) { 
+        if (that.guesses.indexOf(c) > -1) {
           arr.push(c);
         }
         else {
@@ -37,14 +37,50 @@ let app = new Vue({
   },
   methods: {
     takeGuess() {
-      this.guessNumber++;
-      this.guesses.push(this.guess[0]);
-      if (this.chars.containsLetter(this.guess[0]) {
-        this.message = "Good guess.";
-      } 
-      else {
-        this.message = "Sorry, no " + this.guess[0] + " in this word.";
+      let that = this;
+      that.guesses.push(that.guess[0]);
+      
+      if (that.chars.indexOf(that.guess[0]) > -1) {
+        // we've won if we've guessed every letter in the word
+        let guessedAll = true;
+        that.chars.forEach(function (c) {
+          if (that.guesses.indexOf(c) === -1) {
+            guessedAll = false;
+          }
+        });
+
+        // get the number of chars in the word that match the guess
+        let n = 0;
+        that.chars.forEach(function (c) {
+          if (c === that.guess[0]) {
+            n = n + 1;
+          }
+        });
+
+        if (guessedAll) {
+          that.won = true;
+          that.message = "Congratulations! You win.";
+        }
+        else if (n === 1) {
+          that.message = "There is one '" + that.guess[0] + "' in this word."; 
+        }
+        else {
+          that.message = "There are " + n + " '" + that.guess[0] + "'s in this word."; 
+        }
       }
+      else if (that.wrongGuesses.length >= 8) {
+        that.message = "You dead.";
+      }
+      else {
+        that.message = "Sorry, no " + that.guess[0] + " in this word.";
+      }
+    },
+    playAgain() {
+      this.chars = dictionary[Math.ceil(Math.random() * dictionary.length)].split("");
+      this.guess = "";
+      this.guesses = [];
+      this.message = "";
+      this.won = false;
     }
   }
 });

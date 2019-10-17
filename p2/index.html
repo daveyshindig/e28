@@ -8,16 +8,16 @@
 <body>
   <div id='app' v-cloak>
     <h1>Mystery Word Game</h1>
-    <p>Guess the word, one letter at a time, without choosing more than 5 wrong letters.</p>
+    <p>Guess the word, one letter at a time, without choosing more than 10 wrong letters.</p>
     <div>{{ wordDisplay }}</div>
-    <div>
+    <div v-if="wrongGuesses.length < 8 && !won">
       <input id="guessInput" v-model="guess" placeholder="Guess a letter">
-      <button id="guessButton" :click="takeGuess()">Guess</button>
+      <button id="guessButton" v-on:click="takeGuess()">Guess</button>
     </div>
     <p id="reply">{{ message }}</p>
-    <p id="guessesLeft" v-if="!won">You have {{ 5 - guessNumber }} guesses left.</p>
+    <p id="wrongGuesses">Wrong guesses:&nbsp;<span v-for="guess in wrongGuesses">{{ guess }}&nbsp;</span></p>
+    <button id="playAgainButton" v-on:click="playAgain()" v-if="wrongGuesses >= 8 || won">Play Again</button>
   </div>
 </body>
 
 </html>
-
