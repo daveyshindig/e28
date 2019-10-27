@@ -1,8 +1,11 @@
+<!doctype html>
 <html>
+
 <head>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
-  <script src="script.js" defer></script>
-  <link rel="stylesheet" type="text/css" href="style.css" ></head>
+  <script src="js/script.js" defer></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 </head>
 
 <body>
@@ -16,7 +19,7 @@
     </div>
     <p id="reply">{{ message }}</p>
     <p id="wrongGuesses">Wrong guesses:&nbsp;<span v-for="guess in wrongGuesses">{{ guess }}&nbsp;</span></p>
-    <button id="playAgainButton" v-on:click="playAgain()" v-if="wrongGuesses >= 8 || won">Play Again</button>
+    <button id="playAgainButton" v-on:click="playAgain()" v-if="wrongGuesses.length >= 8 || won">Play Again</button>
   </div>
 </body>
 
