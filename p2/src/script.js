@@ -1,11 +1,20 @@
 import Vue from 'vue';
+import GuessUI from './components/GuessUI.vue';
+import ReplyMessage from './components/ReplyMessage.vue';
+import WordDisplay from './components/WordDisplay.vue';
 
-var dictionary = ["pontoon", "incredible", "flight", "buddhism", "desire"];
+// var dictionary = ["pontoon", "incredible", "flight", "buddhism", "desire"];
+var dictionary = ['a'];
 
 let app = new Vue({
   el: "#app",
+  components: {
+    'guess-ui': GuessUI,
+    'reply-message': ReplyMessage,
+    'word-display': WordDisplay
+  },
   data: {
-    chars: dictionary[Math.ceil(Math.random() * dictionary.length)].split(""),
+    chars: dictionary[Math.floor(Math.random() * dictionary.length)].split(""),
     guess: "",
     guesses: [],
     message: "",
@@ -71,14 +80,14 @@ let app = new Vue({
         }
       }
       else if (that.wrongGuesses.length >= 8) {
-        that.message = "You dead.";
+        that.message = "You lose this round.";
       }
       else {
         that.message = "Sorry, no " + that.guess[0] + " in this word.";
       }
     },
     playAgain() {
-      this.chars = dictionary[Math.ceil(Math.random() * dictionary.length)].split("");
+      this.chars = dictionary[Math.floor(Math.random() * dictionary.length)].split("");
       this.guess = "";
       this.guesses = [];
       this.message = "";
