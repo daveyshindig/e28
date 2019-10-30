@@ -15,10 +15,10 @@
     <h1>Mystery Word Game</h1>
     <p>Guess the word, one letter at a time, without choosing more than 10 wrong letters.</p>
     <word-display :word-display="wordDisplay"></word-display>
-    <guess-ui @take-guess="takeGuess()" :guessCount="wrongGuesses.length" :won="won" v-model="guess"></guess-ui>
+    <guess-ui @take-guess="takeGuess()" :count="wrongGuesses.length" :won="won" v-model="guess"></guess-ui>
     <reply-message :message="message"></reply-message>
     <wrong-guesses :wrong-guesses="wrongGuesses"></wrong-guesses>
-    <play-again @play-again="playAgain()" :guessCount="wrongGuesses.length" :won="won"></play-again>
+    <play-again @play-again="playAgain()" :count="wrongGuesses.length" :won="won"></play-again>
   </div>
 </body>
 

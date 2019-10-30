@@ -9,8 +9,7 @@ export default {
   },
   props: {
     count: {
-      type: Number,
-      default: 0
+      type: Number
     },
     won: {
       type: Boolean,

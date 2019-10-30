@@ -144,8 +144,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     count: {
-      type: Number,
-      "default": 0
+      type: Number
     },
     won: {
       type: Boolean,
@@ -222,6 +221,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -1511,19 +1513,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "p",
-    [
-      _c("span", { staticClass: "wrong_guess" }, [_vm._v("Wrong guesses:")]),
-      _vm._v(" "),
-      _vm._l(_vm.wrongGuesses, function(guess) {
-        return _c("span", { staticClass: "wrong_guess" }, [
-          _vm._v(_vm._s(guess))
-        ])
-      })
-    ],
-    2
-  )
+  return _c("div", [
+    _c(
+      "p",
+      [
+        _c("span", { staticClass: "wrong_guess" }, [_vm._v("Wrong guesses:")]),
+        _vm._v(" "),
+        _vm._l(_vm.wrongGuesses, function(guess) {
+          return _c("span", { staticClass: "wrong_guess" }, [
+            _vm._v(_vm._s(guess))
+          ])
+        })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v("Wrong guesses remaining: " + _vm._s(8 - _vm.wrongGuesses.length))
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -14055,6 +14063,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       return this.guesses.filter(function (guess) {
         return _this2.chars.indexOf(guess[0]) === -1;
       });
+    },
+    wrongGuessCount: function wrongGuessCount() {
+      var _this3 = this;
+
+      this.guesses.filter(function (guess) {
+        return _this3.chars.indexOf(guess[0]) === -1;
+      }).length;
     },
     wordDisplay: function wordDisplay() {
       // why?

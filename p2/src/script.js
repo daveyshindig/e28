@@ -34,6 +34,9 @@ let app = new Vue({
     wrongGuesses() {
       return this.guesses.filter(guess => this.chars.indexOf(guess[0]) === -1);
     },
+    wrongGuessCount() {
+      this.guesses.filter(guess => this.chars.indexOf(guess[0]) === -1).length;
+    },
     wordDisplay() {
       // why?
       let that = this;
