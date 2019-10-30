@@ -2,6 +2,8 @@ import Vue from 'vue';
 import GuessUI from './components/GuessUI.vue';
 import ReplyMessage from './components/ReplyMessage.vue';
 import WordDisplay from './components/WordDisplay.vue';
+import WrongGuesses from './components/WrongGuesses.vue';
+import PlayAgain from './components/PlayAgain.vue';
 
 // var dictionary = ["pontoon", "incredible", "flight", "buddhism", "desire"];
 var dictionary = ['a'];
@@ -11,7 +13,9 @@ let app = new Vue({
   components: {
     'guess-ui': GuessUI,
     'reply-message': ReplyMessage,
-    'word-display': WordDisplay
+    'word-display': WordDisplay,
+    'wrong-guesses': WrongGuesses,
+    'play-again': PlayAgain
   },
   data: {
     chars: dictionary[Math.floor(Math.random() * dictionary.length)].split(""),

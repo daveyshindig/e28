@@ -1,7 +1,10 @@
 <!doctype html>
-<html>
+<html lang='en'>
 
 <head>
+  <title>Mystery Word Game (E28 Project 2)</title>
+  <meta charset='utf-8'>
+
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
   <script src="js/script.js" defer></script>
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -12,11 +15,10 @@
     <h1>Mystery Word Game</h1>
     <p>Guess the word, one letter at a time, without choosing more than 10 wrong letters.</p>
     <word-display :word-display="wordDisplay"></word-display>
-    <guess-ui @take-guess="takeGuess($event)" :guessCount="wrongGuesses.length" :won="won" v-model="guess">
-    </guess-ui>
+    <guess-ui @take-guess="takeGuess()" :guessCount="wrongGuesses.length" :won="won" v-model="guess"></guess-ui>
     <reply-message :message="message"></reply-message>
-    <p id="wrongGuesses">Wrong guesses:&nbsp;<span v-for="guess in wrongGuesses">{{ guess }}&nbsp;</span></p>
-    <button id="playAgainButton" v-on:click="playAgain()" v-if="wrongGuesses.length >= 8 || won">Play Again</button>
+    <wrong-guesses :wrong-guesses="wrongGuesses"></wrong-guesses>
+    <play-again @play-again="playAgain()" :guessCount="wrongGuesses.length" :won="won"></play-again>
   </div>
 </body>
 
