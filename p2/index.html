@@ -13,7 +13,7 @@
 <body>
   <div id='app' v-cloak>
     <h1>Mystery Word Game</h1>
-    <p>Guess the word, one letter at a time, without choosing more than 10 wrong letters.</p>
+    <p>Guess the word, one letter at a time, without choosing more than 8 wrong letters.</p>
     <word-display :word-display="wordDisplay"></word-display>
     <guess-ui @take-guess="takeGuess()" :count="wrongGuesses.length" :won="won" v-model="guess"></guess-ui>
     <reply-message :message="message"></reply-message>

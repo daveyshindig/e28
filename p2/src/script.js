@@ -5,8 +5,7 @@ import WordDisplay from './components/WordDisplay.vue';
 import WrongGuesses from './components/WrongGuesses.vue';
 import PlayAgain from './components/PlayAgain.vue';
 
-// var dictionary = ["pontoon", "incredible", "flight", "buddhism", "desire"];
-var dictionary = ['a'];
+var dictionary = ["pontoon", "incredible", "flight", "buddhism", "desire"];
 
 let app = new Vue({
   el: "#app",
