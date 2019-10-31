@@ -14027,9 +14027,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // var dictionary = ["pontoon", "incredible", "flight", "buddhism", "desire"];
 
-var dictionary = ['a'];
+var dictionary = ["pontoon", "incredible", "flight", "buddhism", "desire"];
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: "#app",
   components: {
