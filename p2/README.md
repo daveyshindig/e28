@@ -4,11 +4,11 @@
 
 ## Build strategy
 *Put an x in the build strategy you used. Put an x in each if you tackled both.*
-+ [ ] Integrated
++ [x] Integrated
 + [ ] Comprehensive
 
 ## Outside resources
-*Your list of outside resources go here.*
+The in-class materials, Vue API docs and occasional reference to Mozilla Developer.
 
 ## Notes for instructor
-*Any notes for me to refer to while grading; if none, omit this section.*
+
