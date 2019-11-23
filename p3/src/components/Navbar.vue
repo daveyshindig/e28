@@ -1,8 +1,7 @@
 <template>
-  <b-navbar type="dark">
+  <b-navbar>
     <b-navbar-brand href="#">
-      <img src="https://placekitten.com/g/30/30" class="d-inline-block align-top" alt="Kitten" />
-      808MIX
+      <img src="../../public/img/logo.png" class="d-inline-block align-top logo" alt="808 MIX logo" />
     </b-navbar-brand>
     <b-navbar-nav>
       <b-nav-item to="home">Home</b-nav-item>
@@ -19,3 +18,9 @@ export default {
   template: "#navbar"
 };
 </script>
+
+<style scoped>
+.logo {
+  max-height: 30px;
+}
+</style>
