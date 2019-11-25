@@ -1,11 +1,11 @@
 import Vue from 'vue';
+import App from './../App.vue'
 import VueRouter from 'vue-router';
-import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue';
 
-import Home from './components/Home.vue';
-import About from './components/About.vue';
-import Mix from './components/Mix.vue';
+import About from './components/pages/About.vue';
+import Home from './components/pages/Home.vue';
+import Mix from './components/pages/Mix.vue';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
