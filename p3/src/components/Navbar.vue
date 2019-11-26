@@ -1,10 +1,10 @@
 <template>
   <b-navbar>
-    <b-navbar-brand href="#">
+    <b-navbar-brand to="/">
       <img src="../../public/img/logo.png" class="d-inline-block align-top logo" alt="808 MIX logo" />
     </b-navbar-brand>
     <b-navbar-nav>
-      <b-nav-item to="home">Home</b-nav-item>
+      <b-nav-item to="/">Home</b-nav-item>
       <b-nav-item to="about">About</b-nav-item>
     </b-navbar-nav>
   </b-navbar>

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <navbar></navbar>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -21,7 +22,7 @@ export default {
   },
   mounted() {
     this.favorites = new app.Favorites();
-    app.store.favoriteCount = this.favorites.favoriteCount;
+    app.store.favoriteCount = this.favorites.count();
   }
 };
 </script>
