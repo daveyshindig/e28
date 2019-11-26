@@ -1,10 +1,12 @@
 <template>
-  <div class="mixes">
-    <div class="track" v-for="mix in mixes" :key="mix.id">
-      {{mix.title}}
-      <img class="mix-artwork" :src="mix.artwork_url" />
-    </div>
-  </div>
+  <b-container fluid class="mixes">
+    <b-col class="mix" v-for="mix in mixes" :key="mix.id">
+      <b-link class="mix-link" :to="{ name: 'mix', params: { id: mix.id } }">
+        <b-img class="mix-artwork" :src="mix.artwork_url" alt="cover art" />
+        <div class="mix-title">{{mix.title}}</div>
+      </b-link>
+    </b-col>
+  </b-container>
 </template>
 
 <script>
@@ -26,4 +28,24 @@ export default {
 </script>
 
 <style scoped>
+.mixes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.mix {
+  margin: 0 0 32px;
+  text-decoration: none;
+}
+
+.mix-title {
+  max-width: 300px;
+  margin-top: 8px;
+}
+
+.mix-link,
+.mix-link:hover {
+  text-decoration: none;
+}
 </style>
