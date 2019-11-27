@@ -4,10 +4,10 @@ export default class Favorites {
    *
    */
   constructor() {
-    // Extract JSON cart string from local storage
+    // Extract JSON favorites string from local storage
     let favorites = localStorage.getItem("favorites");
 
-    // Parse JSON cart String to `items` object
+    // Parse JSON favorites String to `favorites` object
     this.favorites = favorites ? JSON.parse(favorites) : [];
   }
 
@@ -41,7 +41,7 @@ export default class Favorites {
 
     if (!favorite) {
       // Product not in faves, add as new favorite
-      this.items.push({
+      this.favorites.push({
         id: trackId
       });
     }
@@ -55,7 +55,7 @@ export default class Favorites {
   remove(trackId) {
     let favorite = this.getFavorite(trackId);
 
-    let favoriteIndex = this.items.indexOf(favorite);
+    let favoriteIndex = this.favorites.indexOf(favorite);
 
     if (favorite) {
       this.favorites.splice(favoriteIndex, 1);
@@ -64,10 +64,10 @@ export default class Favorites {
   }
 
   /**
-   * Get an favorite from favorites via trackId
+   * Get a favorite from favorites via trackId
    * Returns null if product does not exist in favorites
    */
-  getItem(favoriteId) {
-    return this.items.find(({ id }) => id === favoriteId) || null;
+  getFavorite(favoriteId) {
+    return this.favorites.find(({ id }) => id === favoriteId) || null;
   }
 }

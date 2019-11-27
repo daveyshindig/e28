@@ -1,29 +1,26 @@
 <template>
-  <iframe
-    width="430"
-    height="430"
-    scrolling="no"
-    frameborder="no"
-    allow="autoplay"
-    :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + id + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true'"
-  ></iframe>
+  <b-container>
+    <iframe
+      width="430"
+      height="430"
+      scrolling="no"
+      frameborder="no"
+      allow="autoplay"
+      :src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + id + '&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true'"
+    ></iframe>
+    <fave-mix></fave-mix>
+  </b-container>
 </template>
 
 <script>
-import * as app from "./../../app.js";
+import FaveMix from "./FaveMix.vue";
 
 export default {
   name: "ShowMix",
+  components: { FaveMix },
   props: ["id"],
   data: function() {
-    return {
-      mix: null
-    };
-  },
-  mounted() {
-    app.axios.get(app.config.api + "/mixes/" + this.id).then(response => {
-      this.mix = response.data;
-    });
+    return {};
   }
 };
 </script>
