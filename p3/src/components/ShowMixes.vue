@@ -2,8 +2,10 @@
   <b-container fluid class="mixes">
     <b-col class="mix" v-for="mix in mixes" :key="mix.id">
       <b-link class="mix-link" :to="{ name: 'mix', params: { id: mix.id } }">
-        <b-img class="mix-artwork" :src="mix.artwork_url" alt="cover art" />
-        <div class="mix-title">{{mix.title}}</div>
+        <div>
+          <b-img class="mix-artwork" :src="mix.artwork_url" alt="cover art" />
+          <div class="mix-title">{{mix.title}}</div>
+        </div>
       </b-link>
     </b-col>
   </b-container>
@@ -35,13 +37,13 @@ export default {
 }
 
 .mix {
-  margin: 0 0 32px;
+  text-align: center;
   text-decoration: none;
 }
 
 .mix-title {
   max-width: 300px;
-  margin-top: 8px;
+  margin: 12px auto 24px;
 }
 
 .mix-link,

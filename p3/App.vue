@@ -16,7 +16,7 @@ export default {
   },
   data: function() {
     return {
-      links: ["home", "about", "mixes"],
+      links: ["home", "about", "mix"],
       sharedState: app.store
     };
   },
