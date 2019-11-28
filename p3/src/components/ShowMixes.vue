@@ -1,15 +1,13 @@
 <template>
   <b-container fluid class="mixes">
-    <b-row class="mix" v-for="mix in mixes" :key="mix.id">
-      <b-col no-gutter>
-        <b-link class="mix-link" :to="{ name: 'mix', params: { id: mix.id } }">
-          <div>
-            <b-img class="mix-artwork" :src="mix.artwork_url" alt="cover art" />
-            <div class="mix-title">{{mix.title}}</div>
-          </div>
-        </b-link>
-      </b-col>
-    </b-row>
+    <b-col class="mix" v-for="mix in mixes" :key="mix.id">
+      <b-link class="mix-link" :to="{ name: 'mix', params: { id: mix.id } }">
+        <div>
+          <b-img class="mix-artwork" :src="mix.artwork_url" alt="cover art" />
+          <div class="mix-title">{{mix.title}}</div>
+        </div>
+      </b-link>
+    </b-col>
   </b-container>
 </template>
 

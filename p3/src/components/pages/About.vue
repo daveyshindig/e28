@@ -19,6 +19,6 @@
 
 .about-text {
   margin: 0 18px;
-  font-family: monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 </style>
