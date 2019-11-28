@@ -7,18 +7,15 @@
           <div class="mix-title">{{mix.title}}</div>
         </div>
       </b-link>
-      <fave-mix :id="mix.id"></fave-mix>
     </b-col>
   </b-container>
 </template>
 
 <script>
 import * as app from "./../../../app.js";
-import FaveMix from "./../FaveMix.vue";
 
 export default {
   name: "Favorites",
-  components: { FaveMix },
   data: function() {
     return {
       mixes: []
@@ -41,4 +38,24 @@ export default {
 </script>
 
 <style scoped>
+.mixes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.mix {
+  text-decoration: none;
+}
+
+.mix-title {
+  font-size: 1em;
+  max-width: 300px;
+  margin: 12px 0 24px;
+}
+
+.mix-link,
+.mix-link:hover {
+  text-decoration: none;
+}
 </style>

@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .fav {
-  size: 24px;
+  font-size: 24px;
   color: red;
 }
 </style>
