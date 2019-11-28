@@ -1,7 +1,7 @@
 <template>
   <b-container>
-    <span v-if="favorited" @click="removeFavorite">&#x2665;</span>
-    <span v-else @click="addFavorite">&#x2661;</span>
+    <span class="fav" v-if="favorited" @click="removeFavorite">&#x2665;</span>
+    <span class="fav" v-else @click="addFavorite">&#x2661;</span>
   </b-container>
 </template>
 
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-span {
+.fav {
   size: 24px;
   color: red;
 }

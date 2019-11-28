@@ -6,6 +6,7 @@ import BootstrapVue from 'bootstrap-vue';
 import About from './components/pages/About.vue';
 import Home from './components/pages/Home.vue';
 import Mix from './components/pages/Mix.vue';
+import Favorites from './components/pages/Favorites.vue';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
@@ -18,6 +19,7 @@ const routes = [
   { path: '/', component: Home, name: 'home' },
   { path: '/about', component: About, name: 'about' },
   { path: '/mix/:id', component: Mix, name: 'mix', props: true },
+  { path: '/favorites', component: Favorites, name: 'favorites' }
 ];
 
 const router = new VueRouter({

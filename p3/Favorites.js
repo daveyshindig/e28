@@ -1,11 +1,11 @@
 // /src/Favorites.js
 export default class Favorites {
   /**
-   *
+   * Constructor for favorites
    */
   constructor() {
     // Extract JSON favorites string from local storage
-    let favorites = localStorage.getItem("favorites");
+    let favorites = localStorage.getItem('favorites');
 
     // Parse JSON favorites String to `favorites` object
     this.favorites = favorites ? JSON.parse(favorites) : [];
@@ -39,7 +39,7 @@ export default class Favorites {
     // First see if product is already present
     let favorite = this.getFavorites(trackId);
 
-    if (!favorite) {
+    if (favorite !== null) {
       // Product not in faves, add as new favorite
       this.favorites.push({
         id: trackId

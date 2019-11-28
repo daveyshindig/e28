@@ -7,47 +7,38 @@
           <div class="mix-title">{{mix.title}}</div>
         </div>
       </b-link>
+      <fave-mix :id="mix.id"></fave-mix>
     </b-col>
   </b-container>
 </template>
 
 <script>
-import * as app from "./../../app.js";
+import * as app from "./../../../app.js";
+import FaveMix from "./../FaveMix.vue";
 
 export default {
-  name: "ShowMixes",
+  name: "Favorites",
+  components: { FaveMix },
   data: function() {
     return {
       mixes: []
     };
   },
   mounted() {
-    this.mixes = app.axios.get(app.config.api + "/mixes").then(response => {
-      this.mixes = response.data;
+    let that = this;
+    let favorites = new app.Favorites();
+    let faves = favorites.getFavorites();
+    app.axios.get(app.config.api + "/mixes").then(response => {
+      faves.forEach(function(fave) {
+        let mix = response.data.find(mix => mix.id == fave.id);
+        if (mix !== null && mix !== undefined) {
+          that.mixes.push(mix);
+        }
+      });
     });
   }
 };
 </script>
 
 <style scoped>
-.mixes {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.mix {
-  text-decoration: none;
-}
-
-.mix-title {
-  font-size: 1em;
-  max-width: 300px;
-  margin: 12px 0 24px;
-}
-
-.mix-link,
-.mix-link:hover {
-  text-decoration: none;
-}
 </style>
