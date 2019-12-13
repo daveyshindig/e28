@@ -9,7 +9,8 @@
 
 ### Are you able to produce any errors or unexpected results?
 - When adding to the portfolio after navigating from the item on its individual Research page, the market price and similar info is not shown. It appears after adding it, or when adding from the Portfolio page directly.
-- Navigating directly (from the address bar) to a page other than home (e.g. <http://p3.acjj.me/portfolio>) stock's URL (e.g. <http://p3.acjj.me/research/AAPL>) produces a 404.
+- ~~Navigating directly (from the address bar) to a page other than home (e.g. <http://p3.acjj.me/portfolio>) stock's URL (e.g. <http://p3.acjj.me/research/AAPL>) produces a 404.~~
+*Edit: this is an accident of server configuration that's been addressed in our class's issues: <https://github.com/susanBuck/e28-fall19/issues/147>*
 - It's possible to add negative numbers of shares, or negative prices for them, which would be bad in a real-world scenario, but of course we were not expected to validate form input. Just pointing it out for completion's sake.
 
 ### Were there any parts of the interface that you found confusing or unclear?
