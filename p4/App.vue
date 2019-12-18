@@ -16,13 +16,15 @@ export default {
   },
   data: function() {
     return {
-      links: ["home", "about", "mix"],
-      sharedState: app.store
+      links: ["home", "about", "mix"]
     };
   },
   mounted() {
-    this.favorites = new app.Favorites();
-    app.store.favoriteCount = this.favorites.count();
+    let favorites = new app.Favorites();
+    console.log("mounted");
+    console.log(favorites.getFavorites());
+    this.$store.commit("setFavorites", favorites.getFavorites());
+    this.$store.dispatch("setMixes");
   }
 };
 </script>

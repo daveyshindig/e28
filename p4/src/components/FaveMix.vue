@@ -1,36 +1,29 @@
 <template>
   <b-container>
-    <span class="fav" v-if="favorited" @click="removeFavorite">&#x2665;</span>
+    <span class="fav" v-if="isFavorite" @click="removeFavorite">&#x2665;</span>
     <span class="fav" v-else @click="addFavorite">&#x2661;</span>
   </b-container>
 </template>
 
 <script>
-import * as app from "./../../app.js";
-
 export default {
   name: "FaveMix",
   props: ["id"],
   data: function() {
-    return {
-      favorited: null
-    };
+    return {};
   },
   methods: {
     addFavorite() {
-      let favorites = new app.Favorites();
-      favorites.add(this.id);
-      this.favorited = true;
+      this.$store.commit("addFavoriteById", this.id);
     },
     removeFavorite() {
-      let favorites = new app.Favorites();
-      favorites.remove(this.id);
-      this.favorited = false;
+      this.$store.commit("removeFavoriteById", this.id);
     }
   },
-  mounted() {
-    let favorites = new app.Favorites();
-    this.favorited = favorites.getFavorite(this.id);
+  computed: {
+    isFavorite: function() {
+      return this.$store.getters.isFavoriteById(this.id);
+    }
   }
 };
 </script>

@@ -1,38 +1,33 @@
 <template>
-  <b-container fluid class="mixes">
-    <b-col class="mix" v-for="mix in mixes" :key="mix.id">
+  <b-container class="mixes" v-if="hasFavorites">
+    <b-col class="mix" v-for="mix in favMixes" :key="mix.id">
       <b-link class="mix-link" :to="{ name: 'mix', params: { id: mix.id } }">
         <div>
           <b-img class="mix-artwork" :src="mix.artwork_url" alt="cover art" />
-          <div class="mix-title">{{mix.title}}</div>
+          <div class="mix-title">{{ mix.title }}</div>
         </div>
       </b-link>
     </b-col>
   </b-container>
+  <b-container v-else>
+    <h4>You haven't saved any favorites yet.</h4>
+    <h5>Click the heart icon under a mix to save one.</h5>
+  </b-container>
 </template>
 
 <script>
-import * as app from "./../../../app.js";
-
 export default {
   name: "Favorites",
   data: function() {
-    return {
-      mixes: []
-    };
+    return {};
   },
-  mounted() {
-    let that = this;
-    let favorites = new app.Favorites();
-    let faves = favorites.getFavorites();
-    app.axios.get(app.config.api + "/mixes").then(response => {
-      faves.forEach(function(fave) {
-        let mix = response.data.find(mix => mix.id == fave.id);
-        if (mix !== null && mix !== undefined) {
-          that.mixes.push(mix);
-        }
-      });
-    });
+  computed: {
+    favMixes() {
+      return this.$store.getters.getFavorites;
+    },
+    hasFavorites() {
+      return this.$store.getters.hasFavorites;
+    }
   }
 };
 </script>

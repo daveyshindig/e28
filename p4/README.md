@@ -22,3 +22,11 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Testing
+E2E tests ensure that:
+- the home page loads content
+- the individual mixes play
+- navigation links go where they should
+- favorites can be added, removed and displayed
+- correct number of favorites load

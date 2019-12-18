@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="mixes">
+  <b-container class="mixes">
     <b-col class="mix" v-for="mix in mixes" :key="mix.id">
       <b-link class="mix-link" :to="{ name: 'mix', params: { id: mix.id } }">
         <div>
@@ -12,19 +12,16 @@
 </template>
 
 <script>
-import * as app from "./../../app.js";
-
 export default {
   name: "ShowMixes",
   data: function() {
-    return {
-      mixes: []
-    };
+    return {};
   },
-  mounted() {
-    this.mixes = app.axios.get(app.config.api + "/mixes").then(response => {
-      this.mixes = response.data;
-    });
+  mounted() {},
+  computed: {
+    mixes: function() {
+      return this.$store.state.mixes;
+    }
   }
 };
 </script>

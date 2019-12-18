@@ -1,5 +1,6 @@
 // /src/Favorites.js
 export default class Favorites {
+
   /**
    * Constructor for favorites
    */
@@ -19,13 +20,6 @@ export default class Favorites {
   }
 
   /**
-   * Returns how many total favorites have been chosen
-   */
-  count() {
-    return this.favorites.length;
-  }
-
-  /**
    * Updates favorites in localstorage
    */
   update() {
@@ -33,41 +27,39 @@ export default class Favorites {
   }
 
   /**
+   * Get a favorite from favorites via trackId
+   * Returns null if product does not exist in favorites
+   */
+  getFavorite(favoriteId) {
+    return this.favorites.find(({ id }) => id == favoriteId) || null;
+  }
+
+  /**
    * Add a new favorite of the given trackId
    */
   add(trackId) {
     // First see if product is already present
-    let favorite = this.getFavorites(trackId);
+    let favorite = this.getFavorite(trackId);
 
-    if (favorite !== null) {
+    if (favorite === null) {
       // Product not in faves, add as new favorite
       this.favorites.push({
-        id: trackId
+        id: trackId.toString()
       });
     }
-
     this.update();
   }
 
   /**
-   * Remove an favorite from favorites via trackId
+   * Remove a favorite from favorites via trackId
    */
   remove(trackId) {
     let favorite = this.getFavorite(trackId);
-
     let favoriteIndex = this.favorites.indexOf(favorite);
 
     if (favorite) {
       this.favorites.splice(favoriteIndex, 1);
       this.update();
     }
-  }
-
-  /**
-   * Get a favorite from favorites via trackId
-   * Returns null if product does not exist in favorites
-   */
-  getFavorite(favoriteId) {
-    return this.favorites.find(({ id }) => id === favoriteId) || null;
   }
 }
