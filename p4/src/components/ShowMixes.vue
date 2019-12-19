@@ -1,10 +1,15 @@
 <template>
   <b-container class="mixes">
-    <b-col class="mix" v-for="mix in mixes" :key="mix.id">
-      <b-link class="mix-link" :to="{ name: 'mix', params: { id: mix.id } }">
+    <b-col class="mix" data-test="mix" v-for="mix in mixes" :key="mix.id">
+      <b-link class="mix-link" data-test="mix-link" :to="{ name: 'mix', params: { id: mix.id } }">
         <div>
-          <b-img class="mix-artwork" :src="mix.artwork_url" alt="cover art" />
-          <div class="mix-title">{{mix.title}}</div>
+          <b-img
+            class="mix-artwork"
+            v-bind:data-test='"mix-artwork-" + mix.artwork_url'
+            :src="mix.artwork_url"
+            alt="cover art"
+          />
+          <div class="mix-title" data-test="mix-title">{{mix.title}}</div>
         </div>
       </b-link>
     </b-col>

@@ -1,7 +1,12 @@
 <template>
   <b-container>
-    <span class="fav" v-if="isFavorite" @click="removeFavorite">&#x2665;</span>
-    <span class="fav" v-else @click="addFavorite">&#x2661;</span>
+    <span
+      class="fav"
+      v-if="isFavorite"
+      @click="removeFavorite"
+      data-test="remove-favorite-btn"
+    >&#x2665;</span>
+    <span class="fav" v-else @click="addFavorite" data-test="add-favorite-btn">&#x2661;</span>
   </b-container>
 </template>
 

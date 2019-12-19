@@ -21,8 +21,6 @@ export default {
   },
   mounted() {
     let favorites = new app.Favorites();
-    console.log("mounted");
-    console.log(favorites.getFavorites());
     this.$store.commit("setFavorites", favorites.getFavorites());
     this.$store.dispatch("setMixes");
   }
