@@ -24,6 +24,9 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+
+// working with iFrames thanks to the Cypress community on Github
+// https://github.com/cypress-io/cypress/issues/136#issuecomment-525994895
 Cypress.Commands.add(
     'iframeLoaded',
     { prevSubject: 'element' },

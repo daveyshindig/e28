@@ -15,7 +15,6 @@
 
 <script>
 import FaveMix from "./FaveMix.vue";
-import * as app from "./../../app.js";
 
 export default {
   name: "ShowMix",
@@ -23,11 +22,6 @@ export default {
   props: ["id"],
   data: function() {
     return {};
-  },
-  mounted() {
-    let soundCloudElement = document.createElement("script");
-    soundCloudElement.setAttribute("src", app.config.player);
-    document.head.appendChild(soundCloudElement);
   }
 };
 </script>

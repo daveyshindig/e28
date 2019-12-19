@@ -1,32 +1,19 @@
-# p3b
+# Project 4
++ By: *David Wilkie*
++ Production URL: <http://p4.808mix.com>
 
-## Project setup
-```
-npm install
-```
+## Improvements based on P3 peer review feedback
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Outside resources
+I used the W3 JavaScript reference; the official docs for Cypress, Chai, and Vuex; and a help thread or two on the various libraries' Github issues came in handy. In particular:
+- https://github.com/cypress-io/cypress/issues/136#issuecomment-525994895
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### Testing
-tests ensure that:
-- the home page loads content
-- the individual mixes play
+## Notes for instructor
+#### Testing Notes
+E2E and unit tests ensure that:
+- the home page loads mix content
+- the individual mixes are playable
 - navigation links go where they should
 - favorites can be added, removed and displayed
-- the about page appears
+- the about page renders
