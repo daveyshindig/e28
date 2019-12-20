@@ -50,6 +50,8 @@ export default {
 
 .mix-link,
 .mix-link:hover {
+  display: flex;
+  justify-content: center;
   text-decoration: none;
 }
 </style>
