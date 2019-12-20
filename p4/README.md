@@ -3,7 +3,7 @@
 + Production URL: <http://p4.808mix.com>
 
 ## Improvements based on P3 peer review feedback
-
+The mixes in the main page have now been arranged as suggested, centered in narrow viewport widths.
 
 ## Outside resources
 I used the W3 JavaScript reference; the official docs for Cypress, Chai, and Vuex; and a help thread or two on the various libraries' Github issues and Stack Overflow came in handy. In particular:
